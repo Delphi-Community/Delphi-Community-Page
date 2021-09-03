@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,7 +19,7 @@ Mirrors (Inofficial):
 
 You can use [git](https://git-scm.com/) in your terminal or download an [GUI Client](https://git-scm.com/downloads/guis/) like [GitHub Desktop](https://desktop.github.com/).
 
-Clone the source in any path you want. For this tutorial we will use the home directory: `~./lazarus`
+Clone the source in any path you want. For this tutorial we will use the home directory: `~./revivedIDE`
 
 ## Build
 
@@ -29,7 +29,7 @@ Be sure `make` is installed on your operating system.
 
 :::
 
-Open the terminal, go to the directory you cloned the source. `cd ~./lazarus`
+Open the terminal, go to the directory you cloned the source. `cd ~./revivedIDE`
 
 ```shell
   make clean && make bigide
@@ -38,5 +38,34 @@ Open the terminal, go to the directory you cloned the source. `cd ~./lazarus`
 ## Start the IDE
 
 ```shell
-  ~./lazarus --pcp=~./lazarus/localconfig
+  ~./revivedIDE --pcp=~./revivedIDE/localconfig
 ```
+
+
+### Applying changes to the IDE
+Now you've started the application. Open `~./revivedIDE/ide/startlazarus.lpr`.
+
+Go to line 240 and add `ShowMessage('test');`.
+
+```pascal {7}
+procedure TLazarusManager.Initialize;
+var
+  CmdLineFiles: TStrings;
+  i: integer;
+  PCP: String;
+begin
+  ShowMessage('test');
+  FShowSplashOption:=true; 
+  ...
+  ```
+
+### Rebuild the IDE
+The simplest way to rebuild this project, go to `Tools -> Build Lazarus with Profile: Normal IDE`.
+
+You can also rebuild the IDE with this command in your terminal:
+
+```shell
+  make clean && make bigide
+```
+
+Just [start the IDE](#start-the-ide) and your changes will be successfully added.

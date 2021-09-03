@@ -4,32 +4,31 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Open Source & Community',
     Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Everyone is welcome to commit to the community or any projects. Every project we have, is 100% open source! 
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
+    title: 'Revived IDE',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Our passion and goal is to keep the pascal language modern.
+        Everyone is able to commit changes to the Revived IDE as on Lazarus, just much faster and we're able to change much more.
+        Its based on FreePascal and Lazarus.
+      </>
+    ),
+  },
+  {
+    title: 'Objective User Friendly',
+    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    description: (
+      <>
+        We are a very competent and friendly community. Our community is based on a modern #irc which supports multiple languages. <a  href="https://discord.com/invite/c382VBk" target="_blank">Join here</a>
       </>
     ),
   },
