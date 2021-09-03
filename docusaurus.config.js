@@ -26,6 +26,8 @@ module.exports = {
           position: 'left',
           label: 'Documentation',
         },
+        {to: '/docs/install-the-ide/introduction#download', label: 'Download', position: 'right'},
+        {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
         /*{to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/Delphi-Community/Delphi-Community-Page',

@@ -18,3 +18,14 @@ We support following OS & architectures:
 - maxOS Sierra 10.12.6+ (i386, x86_64)
 - Linux
 - FreeBSD 11.x+
+
+## Download
+
+Currently we only offer an installer.
+
+- [Windows 32/64 Bit](#123)
+- [macOS](#123)
+- [Linux](#123)
+    - [DEB](#123)
+    - [RPM](#123)
+- [FreeBSD](#123)
