@@ -24,14 +24,14 @@ module.exports = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        /*{to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/Delphi-Community/Delphi-Community-Page',
           label: 'Discord',
           position: 'right',
-        },
+        },*/
       ],
     },
     footer: {
@@ -58,18 +58,33 @@ module.exports = {
         {
           title: 'More',
           items: [
-            {
+            /*{
               label: 'Blog',
               to: '/blog',
-            },
+            },*/
             {
               label: 'GitHub',
               href: 'https://github.com/Delphi-Community/Delphi-Community-Page',
             },
+            {
+              label: 'FreePascal',
+              href: 'https://www.freepascal.org/',
+            },
+            {
+              label: 'Lazarus IDE',
+              href: 'https://www.lazarus-ide.org/',
+            },
+            {
+              label: 'Embarcadero Delphi',
+              href: 'https://www.embarcadero.com/products/delphi',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Delphi Community, Inc. Built with Docusaurus.`,
+      copyright: `Delphi Community is not affiliated with or endorsed by Embarcadero, Idera, 
+      Lazarus or other rightsholders. <br>
+      Any trademarks used belong to their respective owners. <br>
+      Copyright © ${new Date().getFullYear()} Delphi Community, Built with Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -84,17 +99,33 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/Delphi-Community/Delphi-Community-Page/edit/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/Delphi-Community/Delphi-Community-Page/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+  plugins: [
+    // ... Your other plugins.
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        //language: ["en", "zh"],
+        // ```
+        // When applying `zh` in language, please install `nodejieba` in your project.
       },
     ],
   ],
