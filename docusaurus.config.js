@@ -64,7 +64,7 @@ module.exports = {
             },*/
             {
               label: 'GitHub',
-              href: 'https://github.com/Delphi-Community/Delphi-Community-Page',
+              href: 'https://github.com/dtpfl/Delphi-Community-Page',
             },
             {
               label: 'FreePascal',
@@ -99,13 +99,13 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/Delphi-Community/Delphi-Community-Page/edit/master/',
+          editUrl: 'https://github.com/dtpfl/Delphi-Community-Page/edit/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/Delphi-Community/Delphi-Community-Page/edit/master/',
+            'https://github.com/dtpfl/Delphi-Community-Page/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
