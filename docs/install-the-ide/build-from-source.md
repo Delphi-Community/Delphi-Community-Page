@@ -24,6 +24,8 @@ Clone the source in any path you want. For this tutorial we will use the home di
 
 Be sure `make` is installed on your operating system.
 
+If make isn't working, check your environement variable path.
+
 :::
 
 Open the terminal, go to the directory you cloned the source. `cd ~./revivedIDE`
