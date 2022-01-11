@@ -36,7 +36,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .repeatedImageDC{
-  background-image: url("/img/dcrepeated.png");
+  background-image: url('/img/dcrepeated.png');
   background-size: 100px 100px;
   background-repeat: repeat;
 }
