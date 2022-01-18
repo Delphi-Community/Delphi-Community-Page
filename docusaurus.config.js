@@ -20,13 +20,13 @@ module.exports = {
         src: 'img/delphicommunity.png',
       },
       items: [
-        {
+        /*{
           type: 'doc',
           docId: 'intro',
           position: 'left',
           label: 'Documentation',
-        },
-        {to: '/docs/install-the-ide/introduction#download', label: 'Download', position: 'right'},
+        },*/
+        /*{to: '/docs/install-the-ide/introduction#download', label: 'Download', position: 'right'},*/
         {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
         /*{to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -43,7 +43,7 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Documentation',
               to: '/docs/intro',
             },
           ],

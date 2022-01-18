@@ -13,13 +13,11 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Revived IDE',
+    title: 'Modern Documentation',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Our passion and goal is to keep the pascal language modern.
-        Everyone is able to commit changes to the Revived IDE as on Lazarus, just much faster and we're able to change much more.
-        Its based on FreePascal and Lazarus.
+        We have an independent documentation, where everyone is able to commit. This feature is still under development.
       </>
     ),
   },
