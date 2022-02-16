@@ -1,35 +1,12 @@
-[Delphi-Community.com](https://delphi-community.com)
+<div align="center">
+  <p>
+    <a href="https://delphi-community.com"><img src="https://delphi-community.com/img/delphicommunity.png" alt="Delphi Community logo" height="300px" /></a>    
+  </p>
+  <br />
+  <p>
+    <a href="https://discord.gg/c382VBk"><img src="https://img.shields.io/discord/623794270255579146?label=Discord&style=plastic" alt="Discord server" /></a>
+    <a href="https://delphi-community.com"><img src="https://img.shields.io/website?down_message=offline&style=plastic&up_message=online&url=https%3A%2F%2Fdelphi-community.com" alt="Website" /></a>
+  </p>
+</div>
 
-# Website
-
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
-
-### Installation
-
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+todo :)
