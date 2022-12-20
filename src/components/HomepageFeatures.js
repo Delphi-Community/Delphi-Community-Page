@@ -1,45 +1,41 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
+import imgDc from '../../static/img/discord.png';
+import Link from '@docusaurus/Link';
+
 
 const FeatureList = [
   {
-    title: 'Open Source & Community',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Everyone is welcome to commit to the community or any projects. Every project we have, is 100% open source! 
-      </>
-    ),
+    // title: 'Open Source & Community',
+    // Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    Src: imgDc,
   },
   {
-    title: 'Modern Documentation',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    // justifyContent: 'center',
+    title: 'A community for help, support and discussion',
+    // Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        We have an independent documentation, where everyone is able to commit. This feature is still under development.
-      </>
-    ),
-  },
-  {
-    title: 'Objective User Friendly',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        We are a very competent and friendly community. Our community is based on a modern #irc which supports multiple languages. <a  href="https://discord.com/invite/c382VBk" target="_blank">Join here</a>
+        With over 600 members, join the most active Delphi Discord community to help or get help and discuss programming with like-minded people.<br/><br/>
+        <Link className={clsx('button button--primary button--lg')}>Join Discord</Link>
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({Svg, Src, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--6')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        {Svg != undefined ? <Svg className={styles.featureSvg} alt={title} />
+        : Src != undefined ? <img src={Src} alt={title} />
+        : ''
+        }
+        
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
+      <div className="padding-horiz--md">
+        <h1>{title}</h1>
         <p>{description}</p>
       </div>
     </div>
@@ -47,8 +43,9 @@ function Feature({Svg, title, description}) {
 }
 
 export default function HomepageFeatures() {
+  let divStyle = {minHeight: 'calc(100vh - 60px)'}
   return (
-    <section className={styles.features}>
+    <section className={styles.features} style={divStyle}> 
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

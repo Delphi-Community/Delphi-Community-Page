@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Delphi Community',
   tagline: 'A independent open source community',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://delphi-community.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -13,11 +13,16 @@ module.exports = {
   organizationName: 'Delphi-Community', // Usually your GitHub org/user name.
   projectName: 'Delphi-Community-Page', // Usually your repo name.
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+    },
     navbar: {
       title: 'Delphi Community',
       logo: {
         alt: 'Delphi Community Logo',
-        src: 'img/delphicommunity.png',
+        src: 'img/Logo-OhneRand.png',
+        // src: 'img/logo2022.png',
       },
       items: [
         /*{
@@ -34,10 +39,14 @@ module.exports = {
           label: 'Discord',
           position: 'right',
         },*/
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'left',
+        // },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Docs',
@@ -66,7 +75,7 @@ module.exports = {
             },*/
             {
               label: 'GitHub',
-              href: 'https://github.com/dtpfl/Delphi-Community-Page',
+              href: 'https://github.com/Delphi-CommunityDelphi-Community-Page',
             },
             {
               label: 'FreePascal',
@@ -101,13 +110,13 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dtpfl/Delphi-Community-Page/edit/main/',
+          editUrl: 'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/dtpfl/Delphi-Community-Page/edit/main/',
+            'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -115,5 +124,15 @@ module.exports = {
       },
     ],
   ],
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  // i18n: {
+  //   defaultLocale: 'en',
+  //   locales: ['en', 'de', 'pt'],
+  //   localeConfigs: {
+  //     en: {
+  //       htmlLang: 'en-GB',
+  //     },
+  //     // You can omit a locale (e.g. fr) if you don't need to override the defaults
+  //   },
+  // },
+  // plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
 };
