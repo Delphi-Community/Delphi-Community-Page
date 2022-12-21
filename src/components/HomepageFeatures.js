@@ -18,7 +18,7 @@ const FeatureList = [
     description: (
       <>
         With over 600 members, join the most active Delphi Discord community to help or get help and discuss programming with like-minded people.<br/><br/>
-        <Link className={clsx('button button--primary button--lg')}>Join Discord</Link>
+        <Link className={clsx('button button--primary button--lg')} to="https://discord.com/invite/c382VBk">Join Discord</Link>
       </>
     ),
   },
