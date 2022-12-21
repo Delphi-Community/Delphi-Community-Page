@@ -75,7 +75,7 @@ module.exports = {
             },*/
             {
               label: 'GitHub',
-              href: 'https://github.com/Delphi-CommunityDelphi-Community-Page',
+              href: 'https://github.com/Delphi-Community/Delphi-Community-Page',
             },
             {
               label: 'FreePascal',
