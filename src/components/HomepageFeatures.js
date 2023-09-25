@@ -13,11 +13,24 @@ const FeatureList = [
   },
   {
     // justifyContent: 'center',
-    title: 'A community for help, support and discussion',
+    title: 'A vibrant community providing interactive help, support and discussions',
     // Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        With over 600 members, join the most active Delphi Discord community to help or get help and discuss programming with like-minded people.<br/><br/>
+        Delphi-Community is not just a website – it's a vibrant hub of enthusiasts, developers, and experts who share a mutual passion: the realm of Delphi and Pascal-based languages. With over 700 members on our Discord server, we are proud to be one of the largest and most active communities in this domain.
+        
+        <br/><br/><h3>Why Delphi-Community?</h3>
+
+        <ul>
+          <li><strong>Comprehensive Support: </strong>Whether you're a novice just starting out with Delphi or Pascal, or an experienced developer seeking specific solutions, our community is here to assist and guide you every step of the way.</li>
+          <li><strong>Resources & Tutorials: </strong>Our platform boasts a wealth of resources, from basic tutorials to advanced guides, ensuring that every member can find the information they need.</li>
+          <li><strong>Multilingual Support: </strong>We understand the global nature of coding and development. That's why we proudly support 20 different languages, including German and Afrikaans, ensuring that language is never a barrier to learning or collaboration.
+          </li>
+        </ul> 
+
+
+
+        Join us today and be a part of a community that thrives on knowledge-sharing, collaboration, and the shared love for Delphi and Pascal-based languages. Welcome to the Delphi-Community family!<br/><br/>
         <Link className={clsx('button button--primary button--lg')} to="https://discord.com/invite/c382VBk">Join Discord</Link>
       </>
     ),

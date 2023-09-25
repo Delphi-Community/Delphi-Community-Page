@@ -21,17 +21,17 @@ module.exports = {
       title: 'Delphi Community',
       logo: {
         alt: 'Delphi Community Logo',
-        src: 'img/Logo-OhneRand.png',
+        src: 'img/ModifiedLogo.png',
         // src: 'img/logo2022.png',
       },
       items: [
-        /*{
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Documentation',
-        },*/
-        /*{to: '/docs/install-the-ide/introduction#download', label: 'Download', position: 'right'},*/
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'left',
+        //   label: 'Documentation',
+        // },
+        {to: 'https://www.paypal.com/donate/?hosted_button_id=7JZWSL39B5JA6', label: 'Donate', position: 'right'},
         {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
         /*{to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -95,7 +95,7 @@ module.exports = {
       copyright: `Delphi Community is not affiliated with or endorsed by Embarcadero, Idera, 
       Lazarus or other rightsholders. <br>
       Any trademarks used belong to their respective owners. <br>
-      Copyright © ${new Date().getFullYear()} Delphi Community, Built with Docusaurus.`,
+      Copyright © ${new Date().getFullYear()} Delphi Community`,
     },
     prism: {
       theme: lightCodeTheme,
