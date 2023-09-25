@@ -14,7 +14,7 @@ module.exports = {
   projectName: 'Delphi-Community-Page', // Usually your repo name.
   themeConfig: {
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: false,
     },
     navbar: {
