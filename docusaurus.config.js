@@ -1,18 +1,43 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+
+export default {
   title: 'Delphi Community',
   tagline: 'A independent open source community',
   url: 'https://delphi-community.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'Delphi-Community', // Usually your GitHub org/user name.
-  projectName: 'Delphi-Community-Page', // Usually your repo name.
+  baseUrl: '/',
+  
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.js',
+          // Please change this to your repo.
+          editUrl: 'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
+        },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          editUrl:
+            'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
+        },
+        theme: {
+          customCss: ['./src/css/custom.css'],
+        },
+      },
+    ],
+  ],
+  
   themeConfig: {
+    prism: {
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      additionalLanguages: ['pascal','git'],
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -97,42 +122,6 @@ module.exports = {
       Any trademarks used belong to their respective owners. <br>
       Copyright © ${new Date().getFullYear()} Delphi Community`,
     },
-    prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
-      additionalLanguages: ['pascal','git'],
-    },
+    
   },
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/Delphi-Community/Delphi-Community-Page/edit/main/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['en', 'de', 'pt'],
-  //   localeConfigs: {
-  //     en: {
-  //       htmlLang: 'en-GB',
-  //     },
-  //     // You can omit a locale (e.g. fr) if you don't need to override the defaults
-  //   },
-  // },
-  // plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
 };
