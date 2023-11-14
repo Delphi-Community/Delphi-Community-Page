@@ -46,16 +46,16 @@ export default {
       title: 'Delphi Community',
       logo: {
         alt: 'Delphi Community Logo',
-        src: 'img/ModifiedLogo.png',
+        src: 'img/dc-icon.png',
         // src: 'img/logo2022.png',
       },
       items: [
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Documentation',
-        // },
+        {
+          type: 'doc',
+          docId: 'intro',
+          position: 'left',
+          label: 'Documentation',
+        },
         {to: 'https://www.paypal.com/donate/?hosted_button_id=7JZWSL39B5JA6', label: 'Donate', position: 'right'},
         {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
         /*{to: '/blog', label: 'Blog', position: 'left'},
@@ -74,34 +74,42 @@ export default {
       style: 'light',
       links: [
         {
-          title: 'Docs',
+          title: '📁Docs',
           items: [
+            // {
+            //   label: 'Why Delphi/Pascal?',
+            //   to: '/docs/justwhy',
+            // },
             {
-              label: 'Documentation',
+              label: 'Getting started with Pascal/Delphi',
               to: '/docs/intro',
             },
+            // {
+            //   label: 'Hello world application',
+            //   to: '/docs/hello-world',
+            // },
           ],
         },
         {
-          title: 'Community',
+          title: '🤗Community',
           items: [
             {
               label: 'Discord',
               href: 'https://discord.com/invite/c382VBk',
             },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/Delphi-Community',
+            },
+            {
+              label: 'Donate',
+              href: 'https://www.paypal.com/donate/?hosted_button_id=7JZWSL39B5JA6',
+            }
           ],
         },
         {
-          title: 'More',
+          title: '🔗More',
           items: [
-            /*{
-              label: 'Blog',
-              to: '/blog',
-            },*/
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Delphi-Community/Delphi-Community-Page',
-            },
             {
               label: 'FreePascal',
               href: 'https://www.freepascal.org/',
@@ -113,6 +121,15 @@ export default {
             {
               label: 'Embarcadero Delphi',
               href: 'https://www.embarcadero.com/products/delphi',
+            },
+          ],
+        },
+        {
+          title: '🔨 Banned on our Discord?',
+          items: [
+            {
+              label: 'Contact admin@delphi-community.com',
+              href: 'mailto:admin@delphi-community.com',
             },
           ],
         },

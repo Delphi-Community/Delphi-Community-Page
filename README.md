@@ -1,6 +1,6 @@
 <div align="center">
   <p>
-    <a href="https://delphi-community.com"><img src="https://delphi-community.com/img/delphicommunity.png" alt="Delphi Community logo" height="300px" /></a>    
+    <a href="https://delphi-community.com"><img src="https://delphi-community.com/img/dc-icon.png" alt="Delphi Community logo" height="300px" /></a>    
   </p>
   <br />
   <p>
@@ -10,4 +10,21 @@
 </div>
 
 [Delphi-Community.com](https://Delphi-Community.com)
-todo :)
+
+
+# Delphi-Community.com
+
+Welcome to the Delphi Community – your central hub for Delphi and Pascal programming enthusiasts on Discord!
+
+## About
+
+Delphi-Community.com is a vibrant Discord community focused on the Pascal and Delphi programming languages. We aim to provide a collaborative and inclusive space where both beginners and experienced programmers can share ideas, seek advice, and discuss various aspects of Delphi and Pascal programming.
+
+## Contributing
+
+Contributions from community members are the backbone of our server. Whether you’re sharing knowledge, providing feedback, or contributing to discussions, your input is invaluable.
+
+
+---
+
+Join us on Discord to be a part of our growing Delphi and Pascal programming community!
