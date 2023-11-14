@@ -27,4 +27,4 @@ Contributions from community members are the backbone of our server. Whether you
 
 ---
 
-Join us on Discord to be a part of our growing Delphi and Pascal programming community!
+Join us on [Discord](https://discord.com/invite/c382VBk) to be a part of our growing Delphi and Pascal programming community!
