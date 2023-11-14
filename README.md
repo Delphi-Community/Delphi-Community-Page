@@ -7,12 +7,13 @@
     <a href="https://discord.gg/c382VBk"><img src="https://img.shields.io/discord/623794270255579146?label=Discord&style=plastic" alt="Discord server" /></a>
     <a href="https://delphi-community.com"><img src="https://img.shields.io/website?down_message=offline&style=plastic&up_message=online&url=https%3A%2F%2Fdelphi-community.com" alt="Website" /></a>
   </p>
+  <a href="https://delphi-community.com">delphi-community.com</a>
+    
 </div>
 
-[Delphi-Community.com](https://Delphi-Community.com)
 
 
-# Delphi-Community.com
+# delphi-community.com
 
 Welcome to the Delphi Community – your central hub for Delphi and Pascal programming enthusiasts on Discord!
 
