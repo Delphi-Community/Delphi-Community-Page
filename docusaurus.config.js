@@ -36,7 +36,7 @@ export default {
     prism: {
       theme: lightTheme,
       darkTheme: darkTheme,
-      additionalLanguages: ['pascal','git'],
+      additionalLanguages: ['pascal','git', 'bash'],
     },
     colorMode: {
       defaultMode: 'dark',
@@ -55,6 +55,11 @@ export default {
           docId: 'intro',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          to: 'download',
+          position: 'left',
+          label: 'Download',
         },
         {to: 'https://www.paypal.com/donate/?hosted_button_id=7JZWSL39B5JA6', label: 'Donate', position: 'right'},
         {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
@@ -128,8 +133,8 @@ export default {
           title: '🔨 Banned on our Discord?',
           items: [
             {
-              label: 'Contact admin@delphi-community.com',
-              href: 'mailto:admin@delphi-community.com',
+              label: 'Contact contact@delphi-community.com',
+              href: 'mailto:contact@delphi-community.com',
             },
           ],
         },
