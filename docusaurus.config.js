@@ -56,6 +56,18 @@ export default {
           position: 'left',
           label: 'Documentation',
         },
+        {
+          type: 'dropdown',
+          label: '⚠️',
+          position: 'right',
+          items: [
+            {
+              label: 'Embarcadero servers are experiencing a hardware outage',
+              href: 'https://blogs.embarcadero.com/we-are-experiencing-a-hardware-outage/',
+            },
+            // ... more items
+          ],
+        },
         {to: 'https://www.paypal.com/donate/?hosted_button_id=7JZWSL39B5JA6', label: 'Donate', position: 'right'},
         {to: 'https://discord.com/invite/c382VBk', label: 'Discord', position: 'right'},
         /*{to: '/blog', label: 'Blog', position: 'left'},
