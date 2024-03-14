@@ -58,13 +58,9 @@ export default {
         },
         {
           type: 'dropdown',
-          label: '⚠️ Status',
+          label: '🔧 Status',
           position: 'right',
           items: [
-            {
-              label: '⚠️ Embarcadero servers are experiencing a hardware outage',
-              href: 'https://blogs.embarcadero.com/we-are-experiencing-a-hardware-outage/',
-            },
             {
               label: '🔧 Embarcadero Quality Portal Migration',
               href: 'https://blogs.embarcadero.com/embarcadero-quality-portal-migration/',
