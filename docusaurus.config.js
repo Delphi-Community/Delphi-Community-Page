@@ -62,8 +62,8 @@ export default {
           position: 'right',
           items: [
             {
-              label: '🔧 Embarcadero Quality Portal Migration',
-              href: 'https://blogs.embarcadero.com/embarcadero-quality-portal-migration/',
+              label: '🔧 New Embarcadero Quality Portal',
+              href: 'https://embt.atlassian.net/servicedesk',
             },
             // ... more items
           ],
