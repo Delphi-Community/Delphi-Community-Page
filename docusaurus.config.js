@@ -47,7 +47,7 @@ export default {
       logo: {
         alt: 'Delphi Community Logo',
         src: 'img/dc-icon.png',
-        // src: 'img/logo2022.png',
+        height: 32,
       },
       items: [
         {
