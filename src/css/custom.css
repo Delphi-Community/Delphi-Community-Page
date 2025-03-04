@@ -22,6 +22,87 @@
   --ifm-color-ourred-lighter: rgb(238, 42, 56);
   --ifm-color-ourred-lightest: rgb(238, 42, 56);
   --ifm-code-font-size: 95%;
+  
+  /* Max width variable for consistent sizing */
+  --site-content-max-width: 1400px;
+  
+  /* Typography improvements */
+  --ifm-font-family-base: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-line-height-base: 1.6;
+  
+  /* Spacing improvements */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-paragraph-margin-bottom: 1.25rem;
+}
+
+/* Set max width for the entire page layout */
+#__docusaurus {
+  max-width: var(--site-content-max-width);
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Set max width for the navbar container */
+.navbar__inner {
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Enhance navbar appearance */
+.navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Set max width for the footer */
+.footer__inner {
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Enhance typography */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+p {
+  line-height: var(--ifm-line-height-base);
+}
+
+/* Enhance list items */
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}
+
+/* Enhance buttons */
+.button {
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .docusaurus-highlight-code-line {
@@ -33,4 +114,29 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode enhancements */
+html[data-theme='dark'] {
+  --ifm-background-color: #1a1a1a;
+  --ifm-background-surface-color: #242424;
+}
+
+/* Code blocks enhancement */
+.prism-code {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Card-like elements */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }

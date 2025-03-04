@@ -17,7 +17,7 @@ const FeatureList = [
     // Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Delphi-Community is not just a website – it's a vibrant hub of enthusiasts, developers, and experts who share a mutual passion: the realm of Delphi and Pascal-based languages. With over 700 members on our Discord server, we are proud to be one of the largest and most active communities in this domain.
+        Delphi-Community is not just a website – it's a vibrant hub of enthusiasts, developers, and experts who share a mutual passion: the realm of Delphi and Pascal-based languages. With over 1200 members on our Discord server, we are proud to be one of the largest and most active communities in this domain.
         
         <br/><br/><h3>Why Delphi-Community?</h3>
 
@@ -56,9 +56,8 @@ function Feature({Svg, Src, title, description}) {
 }
 
 export default function HomepageFeatures() {
-  let divStyle = {minHeight: 'calc(100vh - 60px)'}
   return (
-    <section className={styles.features} style={divStyle}> 
+    <section className={styles.features}> 
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
