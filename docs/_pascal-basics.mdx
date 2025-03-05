@@ -1,0 +1,19 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### UTF-8 Best Practices
+
+1. **Be explicit about types** - Use explicit string types (`UTF8String`, `UnicodeString`) rather than relying on the default `string` type
+   
+2. **Be aware of length calculations** - `Length()` returns bytes for UTF-8 strings, not character count
+   
+3. **Source file encoding matters** - Use compiler directives to specify your source code encoding:
+   ```pascal
+   {$CODEPAGE UTF8}
+   ```
+   
+4. **Use appropriate routines** - For character-aware operations on UTF-8 strings:
+   - Delphi: Use `Character` unit functions
+   - Free Pascal: Use `UnicodeUtils`, `LazUTF8` or `LConvEncoding` units
+
+> 📘 **Note:** For cross-platform applications, UTF-8 is typically the best choice for file I/O and network communications, while the native string type (UnicodeString) is best for internal processing.

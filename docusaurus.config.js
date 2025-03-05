@@ -37,6 +37,13 @@ export default {
       theme: lightTheme,
       darkTheme: darkTheme,
       additionalLanguages: ['pascal','git'],
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: {start: 'highlight-start', end: 'highlight-end'},
+        },
+      ],
     },
     colorMode: {
       defaultMode: 'dark',
@@ -47,7 +54,7 @@ export default {
       logo: {
         alt: 'Delphi Community Logo',
         src: 'img/dc-icon.png',
-        // src: 'img/logo2022.png',
+        height: 32,
       },
       items: [
         {
