@@ -6,10 +6,92 @@ title: "Installation"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-### Installing Delphi
+# Pascal Development Options
+
+Before installing, it's helpful to understand the main Pascal development environments available:
+
+- **Delphi**: Commercial IDE by Embarcadero with a powerful visual component library. Offers a free Community Edition for individuals, students, and small businesses. Excellent for Windows development with cross-platform capabilities.
+
+- **Free Pascal**: Open-source Pascal compiler available on virtually all platforms. Completely free with no licensing restrictions.
+
+- **Lazarus IDE**: Free and open-source IDE that works with Free Pascal. Provides a visual development experience similar to Delphi with its own component library.
+
+Choose the option that best fits your needs. The instructions for installing each are provided below.
+
+## Installing
 
 <Tabs>
-  <TabItem value="delphi" label="Delphi" default>
+  <TabItem value="lazarus" label="Lazarus IDE" default>
+
+### Installing Lazarus IDE
+
+Lazarus is a free and open-source IDE for Free Pascal, providing a development experience similar to Delphi.
+
+#### macOS/Linux
+1. **Using installation script:**
+   ```bash
+   curl -fsSL https://delphi-community.com/install.sh | sh
+   ```
+   This interactive script lets you:
+   - Select between FreePascal and/or Lazarus
+   - Choose between systemwide or userspace installation
+   - Configure your installation options
+
+2. **Launch Lazarus:**
+   - From your application menu, or
+   - Type `lazarus-ide` in terminal
+
+#### Windows
+1. **Using Winget (recommended):**
+   ```bash
+   winget install -e --id Lazarus.Lazarus
+   ```
+   This is the simplest method and automatically installs both Lazarus and Free Pascal.
+
+2. **Manual download:**
+   - Visit the [Lazarus Downloads page](https://www.lazarus-ide.org/index.php?page=downloads)
+   - Download the latest Windows installer (.exe file)
+   - Make sure to download the installer that includes FPC if you haven't installed it separately
+   - Run the installer and follow the on-screen instructions
+
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+
+### Installing Free Pascal Compiler (FPC)
+
+Free Pascal is a free and open-source Pascal compiler that works on virtually all platforms.
+
+#### macOS/Linux
+1. **Using installation script:**
+   ```bash
+   curl -fsSL https://delphi-community.com/install.sh | sh
+   ```
+   This interactive script lets you:
+   - Select between FreePascal and/or Lazarus
+   - Choose between systemwide or userspace installation
+   - Configure your installation options
+
+2. **Verify installation:**
+   ```bash
+   fpc -i
+   ```
+   This should display the Free Pascal Compiler version and information.
+
+#### Windows
+1. **Using Winget (recommended):**
+   ```bash
+   winget install -e --id FreePascal.FreePascalCompiler
+   ```
+   This is the simplest method and automatically installs Free Pascal Compiler.
+
+2. **Manual download:**
+   - Visit the [Free Pascal Downloads page](https://www.freepascal.org/download.html)
+   - Download the latest Windows installer (.exe file)
+   - Run the installer and follow the on-screen instructions
+   - The default installation options work well for beginners
+
+  </TabItem>
+  <TabItem value="delphi" label="Delphi">
 
 Delphi is available in several editions from Embarcadero:
 
@@ -24,94 +106,6 @@ Delphi is available in several editions from Embarcadero:
    - Activate your license (Community Edition requires renewal every 12 months)
 
 > 📘 **Tip:** The Delphi Community Edition has some limitations compared to professional editions, but it's perfect for learning and small projects.
-
-  </TabItem>
-  <TabItem value="freepascal" label="Free Pascal">
-
-### Installing Free Pascal Compiler (FPC)
-
-Free Pascal is a free and open-source Pascal compiler that works on virtually all platforms.
-
-#### Windows
-1. **Download:** Visit the [Free Pascal Downloads page](https://www.freepascal.org/download.html)
-2. **Choose installer:** Download the latest Windows installer (.exe file)
-3. **Run the installer:** Follow the on-screen instructions
-   - The default installation options work well for beginners
-
-#### macOS
-1. **Homebrew (recommended):**
-   ```bash
-   brew install fpc
-   ```
-
-2. **Direct download:**
-   - Download the macOS package from the [Free Pascal Downloads page](https://www.freepascal.org/download.html)
-   - Open the package and follow the installation instructions
-
-#### Linux
-1. **Using package manager:**
-   - Ubuntu/Debian:
-     ```bash
-     sudo apt update
-     sudo apt install fpc
-     ```
-   - Fedora/RHEL:
-     ```bash
-     sudo dnf install fpc
-     ```
-   - Arch Linux:
-     ```bash
-     sudo pacman -S fpc
-     ```
-
-2. **Verify installation:**
-   ```bash
-   fpc -i
-   ```
-   This should display the Free Pascal Compiler version and information.
-
-  </TabItem>
-  <TabItem value="lazarus" label="Lazarus IDE">
-
-### Installing Lazarus IDE
-
-Lazarus is a free and open-source IDE for Free Pascal, providing a development experience similar to Delphi.
-
-#### Windows
-1. **Download:** Visit the [Lazarus Downloads page](https://www.lazarus-ide.org/index.php?page=downloads)
-2. **Choose installer:** Download the latest Windows installer (.exe file)
-   - Make sure to download the installer that includes FPC if you haven't installed it separately
-3. **Run the installer:** Follow the on-screen instructions
-
-#### macOS
-1. **Homebrew (recommended):**
-   ```bash
-   brew install --cask lazarus
-   ```
-
-2. **Direct download:**
-   - Download the macOS package from the [Lazarus Downloads page](https://www.lazarus-ide.org/index.php?page=downloads)
-   - Open the package and follow the installation instructions
-
-#### Linux
-1. **Using package manager:**
-   - Ubuntu/Debian:
-     ```bash
-     sudo apt update
-     sudo apt install lazarus
-     ```
-   - Fedora/RHEL:
-     ```bash
-     sudo dnf install lazarus
-     ```
-   - Arch Linux:
-     ```bash
-     sudo pacman -S lazarus-qt5
-     ```
-
-2. **Launch Lazarus:**
-   - From your application menu, or
-   - Type `lazarus-ide` in terminal
 
   </TabItem>
 </Tabs>
