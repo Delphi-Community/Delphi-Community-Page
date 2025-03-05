@@ -1,0 +1,117 @@
+---
+sidebar_position: 1
+title: "Installation"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### Installing Delphi
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+
+Delphi is available in several editions from Embarcadero:
+
+1. **Download:** Visit the [Embarcadero website](https://www.embarcadero.com/products/delphi/starter/free-download) to download Delphi Community Edition (free for personal use, startups, and small businesses)
+
+2. **Run the installer:** Follow the on-screen instructions
+   - Choose the platforms you want to target (Windows, macOS, iOS, Android, Linux)
+   - The installer will download and install the necessary components
+
+3. **First launch:** 
+   - On first launch, you'll need to create or log in to an Embarcadero account
+   - Activate your license (Community Edition requires renewal every 12 months)
+
+> 📘 **Tip:** The Delphi Community Edition has some limitations compared to professional editions, but it's perfect for learning and small projects.
+
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+
+### Installing Free Pascal Compiler (FPC)
+
+Free Pascal is a free and open-source Pascal compiler that works on virtually all platforms.
+
+#### Windows
+1. **Download:** Visit the [Free Pascal Downloads page](https://www.freepascal.org/download.html)
+2. **Choose installer:** Download the latest Windows installer (.exe file)
+3. **Run the installer:** Follow the on-screen instructions
+   - The default installation options work well for beginners
+
+#### macOS
+1. **Homebrew (recommended):**
+   ```bash
+   brew install fpc
+   ```
+
+2. **Direct download:**
+   - Download the macOS package from the [Free Pascal Downloads page](https://www.freepascal.org/download.html)
+   - Open the package and follow the installation instructions
+
+#### Linux
+1. **Using package manager:**
+   - Ubuntu/Debian:
+     ```bash
+     sudo apt update
+     sudo apt install fpc
+     ```
+   - Fedora/RHEL:
+     ```bash
+     sudo dnf install fpc
+     ```
+   - Arch Linux:
+     ```bash
+     sudo pacman -S fpc
+     ```
+
+2. **Verify installation:**
+   ```bash
+   fpc -i
+   ```
+   This should display the Free Pascal Compiler version and information.
+
+  </TabItem>
+  <TabItem value="lazarus" label="Lazarus IDE">
+
+### Installing Lazarus IDE
+
+Lazarus is a free and open-source IDE for Free Pascal, providing a development experience similar to Delphi.
+
+#### Windows
+1. **Download:** Visit the [Lazarus Downloads page](https://www.lazarus-ide.org/index.php?page=downloads)
+2. **Choose installer:** Download the latest Windows installer (.exe file)
+   - Make sure to download the installer that includes FPC if you haven't installed it separately
+3. **Run the installer:** Follow the on-screen instructions
+
+#### macOS
+1. **Homebrew (recommended):**
+   ```bash
+   brew install --cask lazarus
+   ```
+
+2. **Direct download:**
+   - Download the macOS package from the [Lazarus Downloads page](https://www.lazarus-ide.org/index.php?page=downloads)
+   - Open the package and follow the installation instructions
+
+#### Linux
+1. **Using package manager:**
+   - Ubuntu/Debian:
+     ```bash
+     sudo apt update
+     sudo apt install lazarus
+     ```
+   - Fedora/RHEL:
+     ```bash
+     sudo dnf install lazarus
+     ```
+   - Arch Linux:
+     ```bash
+     sudo pacman -S lazarus-qt5
+     ```
+
+2. **Launch Lazarus:**
+   - From your application menu, or
+   - Type `lazarus-ide` in terminal
+
+  </TabItem>
+</Tabs>

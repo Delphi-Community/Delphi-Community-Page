@@ -1,0 +1,6 @@
+position: 2
+label: "Getting Started"
+collapsible: false
+link:
+  type: doc
+  id: getting-started/getting-started
