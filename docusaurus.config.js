@@ -37,6 +37,13 @@ export default {
       theme: lightTheme,
       darkTheme: darkTheme,
       additionalLanguages: ['pascal','git'],
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: {start: 'highlight-start', end: 'highlight-end'},
+        },
+      ],
     },
     colorMode: {
       defaultMode: 'dark',
