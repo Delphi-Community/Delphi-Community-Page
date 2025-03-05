@@ -2,23 +2,42 @@ import React, { useEffect } from 'react';
 
 // Map of Pascal tokens that should be linkable with their URLs
 const LINKABLE_TOKENS = {
-  'Integer': '/docs/integer',
+  // Integer types
+  'Integer': '/docs/data-types/numeric-types#integer-types',
+  'ShortInt': '/docs/data-types/numeric-types#signed-integer-types',
+  'SmallInt': '/docs/data-types/numeric-types#signed-integer-types', 
+  'LongInt': '/docs/data-types/numeric-types#signed-integer-types',
+  'Int64': '/docs/data-types/numeric-types#signed-integer-types',
+  'NativeInt': '/docs/data-types/numeric-types#signed-integer-types',
+  
+  // Unsigned integer types
+  'Byte': '/docs/data-types/numeric-types#unsigned-integer-types',
+  'Word': '/docs/data-types/numeric-types#unsigned-integer-types',
+  'Cardinal': '/docs/data-types/numeric-types#unsigned-integer-types',
+  'DWord': '/docs/data-types/numeric-types#unsigned-integer-types',
+  'QWord': '/docs/data-types/numeric-types#unsigned-integer-types',
+  'NativeUInt': '/docs/data-types/numeric-types#unsigned-integer-types',
+  
+  // Floating-point types
+  'Single': '/docs/data-types/numeric-types#floating-point-types',
+  'Double': '/docs/data-types/numeric-types#floating-point-types',
+  'Extended': '/docs/data-types/numeric-types#floating-point-types',
+  'Real': '/docs/data-types/numeric-types#floating-point-types',
+  
+  // Fixed-point types
+  'Currency': '/docs/data-types/numeric-types#fixed-point-types',
+  'Comp': '/docs/data-types/numeric-types#fixed-point-types',
+  
+  // Platform-specific types
+  'PtrInt': '/docs/data-types/numeric-types#integer-types',
+  'PtrUInt': '/docs/data-types/numeric-types#integer-types',
+  'SizeInt': '/docs/data-types/numeric-types#integer-types',
+  'SizeUInt': '/docs/data-types/numeric-types#integer-types',
+  
+  // Other types
   'String': '/docs/string',
   'Boolean': '/docs/boolean',
-  'Double': '/docs/double',
-  'Single': '/docs/single',
-  'ShortInt': '/docs/shortint',
-  'Byte': '/docs/byte',
-  'SmallInt': '/docs/smallint',
-  'Word': '/docs/word',
-  'LongInt': '/docs/longint',
-  'DWord': '/docs/dword',
-  'Int64': '/docs/int64',
-  'QWord': '/docs/qword',
-  'Cardinal': '/docs/cardinal',
-  'Extended': '/docs/extended',
   'Char': '/docs/char',
-  'Currency': '/docs/currency',
   // Add more tokens as needed
 };
 

@@ -1,0 +1,498 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Numeric Data Types in Pascal
+
+Pascal provides a rich set of numeric types for different computational needs. This guide covers all numeric types available in Delphi, Free Pascal, and Lazarus.
+
+## Overview of Numeric Types
+
+Pascal numeric types fall into three main categories:
+
+1. **Integer Types**: Represent whole numbers without fractional parts
+2. **Floating-Point Types**: Represent numbers with fractional parts and wide range
+3. **Fixed-Point Types**: Represent numbers with fixed decimal precision (primarily for financial calculations)
+
+All numeric types in Pascal are **ordinal types** (except floating-point types), meaning they have a well-defined order and allow operations like successor and predecessor.
+
+---
+
+## Integer Types
+
+### Signed Integer Types
+
+| Type       | Size (Bits) | Range                               | Platform Compatibility |
+|------------|-------------|-------------------------------------|------------------------|
+| `ShortInt` | 8           | -128 to 127                         | All                    |
+| `SmallInt` | 16          | -32,768 to 32,767                   | All                    |
+| **`Integer`** | 32*        | -2,147,483,648 to 2,147,483,647     | Default in most cases  |
+| `LongInt`  | 32          | Same as `Integer`                   | Legacy alias           |
+| `Int64`    | 64          | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | All |
+| `NativeInt`| Platform-dependent | Same as pointer size         | Delphi 2009+, FPC 2.6.0+ |
+
+*Note*: In Free Pascal, `Integer` is 16-bit on some embedded targets. Use `SizeOf(Integer)` to check.
+
+### Unsigned Integer Types
+
+| Type       | Size (Bits) | Range                       | Platform Compatibility |
+|------------|-------------|------------------------------|------------------------|
+| `Byte`     | 8           | 0 to 255                     | All                    |
+| `Word`     | 16          | 0 to 65,535                  | All                    |
+| `Cardinal` | 32*         | 0 to 4,294,967,295           | All                    |
+| `DWord`    | 32          | Same as `Cardinal`           | Legacy alias           |
+| `QWord`    | 64          | 0 to 18,446,744,073,709,551,615 | All               |
+| `NativeUInt`| Platform-dependent | Same as pointer size  | Delphi 2009+, FPC 2.6.0+ |
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+    In Delphi, `Integer` and `Cardinal` are always 32-bit on all supported platforms, including 64-bit Windows and macOS.
+    
+    Delphi also provides platform-specific integer types:
+    
+    | Type       | Description                                           |
+    |------------|-------------------------------------------------------|
+    | `DWORD`    | Alias for 32-bit unsigned integer (Windows API type)  |
+    | `HANDLE`   | Integer-based Windows resource handle                 |
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+    In Free Pascal, there are additional platform-specific integer types:
+    
+    | Type       | Description                                           |
+    |------------|-------------------------------------------------------|
+    | `PtrInt`   | Signed integer type that has the same size as a pointer |
+    | `PtrUInt`  | Unsigned integer type that has the same size as a pointer |
+    | `SizeInt`  | Signed integer used for sizes (same as PtrInt)        |
+    | `SizeUInt` | Unsigned integer used for sizes (same as PtrUInt)     |
+  </TabItem>
+</Tabs>
+
+---
+
+## Floating-Point Types
+
+Floating-point types represent real numbers with a fractional part. They can represent a much wider range of values than integers but with limited precision.
+
+| Type       | Size (Bits) | Range                       | Precision      | Platform Compatibility |
+|------------|-------------|-----------------------------|--------------------|------------------------|
+| `Single`   | 32          | 1.5E-45 to 3.4E38          | ~7-8 digits        | All                    |
+| `Double`   | 64          | 5.0E-324 to 1.7E308        | ~15-16 digits      | All                    |
+| `Extended` | 80*         | 3.4E-4932 to 1.1E4932      | ~19-20 digits      | Platform-dependent     |
+| `Real`     | Varies      | Alias for Double in modern compilers | ~15-16 digits | All               |
+
+*Note: `Extended` is 80-bit in x86 and x86-64, but might be reduced to 64-bit on some platforms.
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+    ```pascal
+    // Delphi floating-point specifics
+    var
+      // Delphi always ensures IEEE compatibility
+      s: Single = 3.14;
+      d: Double = 3.14159265358979;
+      
+      // Extended varies by platform and compiler settings
+      e: Extended = 3.14159265358979323846;
+      
+      // Compiler directive to control Extended size
+      {$EXCESSPRECISION ON}  // Uses 80-bit Extended when available
+    ```
+    
+    In modern Delphi, the `Real` type is an alias for `Double`. In 32-bit Delphi up to Delphi 7, `Real48` was a 48-bit legacy type.
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+    ```pascal
+    // Free Pascal floating-point specifics
+    var
+      // IEEE types
+      s: Single = 3.14;
+      d: Double = 3.14159265358979;
+      
+      // Extended depends on the platform and FPU settings
+      e: Extended = 3.14159265358979323846;
+      
+      // Complex number types (requires cmem unit)
+      cs: CSingle;   // Complex Single
+      cd: CDouble;   // Complex Double
+      ce: CExtended; // Complex Extended
+      
+      // Control precision mode
+      {$MODESWITCH FPC} // Use Free Pascal mode
+      {$MODESWITCH RESULT} // Enable function result type
+    ```
+    
+    In Free Pascal, `Real` is configurable through compiler mode. In `{$MODE FPC}` it's a 64-bit double, while in `{$MODE TP}` (Turbo Pascal) it's a 48-bit Real.
+  </TabItem>
+</Tabs>
+
+---
+
+## Fixed-Point Types
+
+Fixed-point types provide exact decimal representation for financial and business calculations.
+
+| Type       | Size (Bits) | Range                       | Precision      | Platform Compatibility |
+|------------|-------------|-----------------------------|--------------------|------------------------|
+| `Currency` | 64          | -922,337,203,685,477.5808 to 922,337,203,685,477.5807 | 4 decimal places | All |
+| `Comp`     | 64          | -2^63+1 to 2^63-1          | Integer (no decimal) | All                    |
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+    ```pascal
+    // Delphi fixed-point type examples
+    var
+      price: Currency = 19.99;
+      total: Currency;
+      
+      // Currency operations are consistent and exact
+      total := price * 1.08; // Add 8% tax
+      
+      // Comp is a 64-bit integer, mainly for backward compatibility
+      value: Comp = 12345678;
+      
+      // Currency format methods (requires SysUtils unit)
+      formattedPrice: string = CurrToStr(price);
+      localePrice: string = FormatCurr('$#,##0.00', price);
+    ```
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+    ```pascal
+    // Free Pascal fixed-point type examples
+    var
+      price: Currency = 19.99;
+      total: Currency;
+      
+      // Currency division requires special handling to maintain precision
+      // Use multiplication instead of division when possible
+      total := price * 0.9; // 10% discount
+      
+      // Format currency (requires SysUtils unit)
+      formattedPrice: string = CurrToStr(price);
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Numeric Type Declaration & Initialization
+
+```pascal
+var
+  // Integer declaration
+  counter: Integer;                // Uninitialized
+  count: Integer = 100;            // Initialized
+  
+  // Floating-point declaration
+  pi: Double = 3.14159265358979;   // Initialized with literal
+  radius: Single;                  // Uninitialized
+  
+  // Fixed-point declaration
+  price: Currency = 1245.99;       // Initialized
+  
+  // Multiple variables of the same type
+  x, y, z: Integer;                // All Integer type
+  
+  // Const declaration (compile-time constant)
+  const
+    MaxItems = 1000;               // Integer constant
+    Pi = 3.14159265358979;         // Double constant
+    TaxRate = 0.07;                // Double constant
+    
+  // Typed constants (for backward compatibility)
+  const
+    ItemCount: Integer = 0;        // Initialized variable in older dialects
+```
+
+---
+
+## Type Conversions
+
+Pascal allows conversion between numeric types, but care must be taken to avoid precision loss or overflow.
+
+```pascal
+var
+  i: Integer = 42;
+  f: Single;
+  d: Double;
+  c: Currency;
+  
+begin
+  // Implicit conversion (widening)
+  f := i;      // Integer to Single: safe
+  d := f;      // Single to Double: safe
+  
+  // Explicit conversion (narrowing)
+  i := Round(f);  // Single to Integer: possible loss of precision
+  i := Trunc(d);  // Double to Integer: removes decimal part
+  
+  // Fixed-point conversions
+  c := i;      // Integer to Currency: safe
+  i := Round(c * 100) div 100; // Currency to Integer: loses precision
+  
+  // Floating literals are Double by default
+  f := 3.14;   // Implicit conversion from Double to Single
+  
+  // Type conversion functions
+  c := 123.456;
+  i := Trunc(c);    // Result: 123 (truncates decimal part)
+  i := Round(c);    // Result: 123 (rounds to nearest integer)
+  i := Floor(d);    // Result: 123 (largest integer <= d)
+  i := Ceil(d);     // Result: 124 (smallest integer >= d)
+  
+  // String conversions (requires SysUtils)
+  i := StrToInt('42');      // String to Integer
+  f := StrToFloat('3.14');  // String to Float
+  c := StrToCurr('123.45'); // String to Currency
+  
+  // Handling errors in string conversions
+  i := StrToIntDef('invalid', 0);  // Returns 0 if conversion fails
+  
+  // Try blocks for safe conversion
+  if TryStrToInt('42', i) then
+    WriteLn('Conversion succeeded: ', i)
+  else
+    WriteLn('Conversion failed');
+end;
+```
+
+---
+
+## Numeric Operations
+
+### Integer Operations
+
+```pascal
+var
+  a, b, result: Integer;
+begin
+  a := 10;
+  b := 3;
+  
+  // Arithmetic
+  result := a + b;    // Addition: 13
+  result := a - b;    // Subtraction: 7
+  result := a * b;    // Multiplication: 30
+  result := a div b;  // Integer division: 3
+  result := a mod b;  // Remainder (modulo): 1
+  
+  // Bitwise operations
+  result := a and b;  // Bitwise AND
+  result := a or b;   // Bitwise OR
+  result := a xor b;  // Bitwise XOR
+  result := not a;    // Bitwise NOT (one's complement)
+  result := a shl 2;  // Shift left (multiply by 2²): 40
+  result := a shr 1;  // Shift right (divide by 2): 5
+end;
+```
+
+### Floating-Point Operations
+
+```pascal
+var
+  a, b, result: Double;
+begin
+  a := 10.5;
+  b := 3.2;
+  
+  // Arithmetic
+  result := a + b;    // Addition: 13.7
+  result := a - b;    // Subtraction: 7.3
+  result := a * b;    // Multiplication: 33.6
+  result := a / b;    // Division (with decimal): ~3.28125
+  
+  // Mathematical functions (requires Math unit)
+  result := Sqrt(a);          // Square root: ~3.24
+  result := Power(a, b);      // a raised to power b: ~40467.36
+  result := Ln(a);            // Natural logarithm: ~2.35
+  result := Log10(a);         // Base-10 logarithm: ~1.02
+  result := Exp(1.0);         // e raised to power: ~2.72
+  
+  // Trigonometric functions (requires Math unit)
+  result := Sin(Pi/2);        // Sine: 1.0
+  result := Cos(Pi);          // Cosine: -1.0
+  result := ArcTan(1.0);      // Arctangent: ~0.785 (~π/4)
+  
+  // Rounding functions
+  result := Round(a);         // Round to nearest integer: 11
+  result := Trunc(a);         // Truncate decimal part: 10
+  result := Frac(a);          // Fractional part: 0.5
+  result := Int(a);           // Integer part: 10.0
+  result := Ceil(a);          // Ceiling (smallest integer >= a): 11
+  result := Floor(a);         // Floor (largest integer <= a): 10
+end;
+```
+
+### Fixed-Point Operations
+
+```pascal
+var
+  price, tax, total: Currency;
+begin
+  price := 19.99;
+  tax := 0.07;  // 7%
+  
+  // Multiplication
+  total := price * (1 + tax);  // Add tax: 21.3893
+  
+  // Division (be cautious with precision)
+  total := price / 3;  // Divide by 3: ~6.6633
+  
+  // Currency-specific formatting (requires SysUtils)
+  WriteLn(FormatCurr('$#,##0.00', total));
+end;
+```
+
+---
+
+## Precision and Range Considerations
+
+### Floating-Point Precision Issues
+
+```pascal
+var
+  a, b, c: Double;
+begin
+  // Floating-point precision example
+  a := 0.1;
+  b := 0.2;
+  c := a + b;  // Expected: 0.3, Actual: ~0.30000000000000004
+  
+  // Testing equality (problematic)
+  if c = 0.3 then
+    WriteLn('Equal') // May not execute due to precision issues
+  else
+    WriteLn('Not equal'); // More likely to execute
+    
+  // Better approach for equality testing
+  if Abs(c - 0.3) < 1E-15 then
+    WriteLn('Approximately equal');
+end;
+```
+
+### Handling Overflow
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+    ```pascal
+    {$OVERFLOWCHECKS ON}  // Enable overflow checking
+    var
+      i: Byte;
+      j: Integer;
+    begin
+      // Integer overflow
+      i := 255;
+      i := i + 1;  // Runtime error: overflow
+      
+      // Safe approach
+      j := Integer(i) + 1;  // First convert to larger type
+      if (j <= High(Byte)) then
+        i := Byte(j)
+      else
+        WriteLn('Overflow would occur');
+        
+      // Same for arithmetic operations that might overflow
+      j := High(Integer);
+      if (Int64(j) + Int64(j) <= High(Integer)) then
+        j := j + j
+      else
+        WriteLn('Operation would overflow');
+    end;
+    {$OVERFLOWCHECKS OFF}
+    ```
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+    ```pascal
+    {$Q+}  // Enable overflow checking
+    var
+      i: Byte;
+      j: Integer;
+    begin
+      // With overflow checking on
+      i := 255;
+      // i := i + 1;  // Runtime error: overflow
+      
+      // Alternative: use larger type first
+      j := i + 1;
+      
+      // Check range before assigning back
+      if (j >= Low(Byte)) and (j <= High(Byte)) then
+        i := Byte(j)
+      else
+        WriteLn('Value out of range for Byte');
+    end;
+    {$Q-}
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Best Practices for Numeric Types
+
+1. **Choose Appropriate Types**:
+   - Use `Integer` for general counting and indexing
+   - Use `Int64` for large integer values
+   - Use `Double` for scientific calculations
+   - Use `Currency` for financial calculations
+   - Use `NativeInt`/`NativeUInt` when dealing with pointers or platform-specific sizes
+
+2. **Avoid Mixing Types in Expressions**:
+   - Be aware of implicit type conversions
+   - Use explicit casts when mixing signed/unsigned types
+
+3. **Handle Floating-Point Equality Carefully**:
+   - Never test floating-point values for exact equality
+   - Use threshold comparison: `Abs(a - b) < epsilon`
+
+4. **Prevent Overflow and Underflow**:
+   - Enable overflow checking during development
+   - Pre-check operations that might overflow
+   - Use larger integer types for intermediate calculations
+
+5. **Format Output Appropriately**:
+   - Use formatting functions for consistent display
+   - Consider locale settings for numeric output
+
+```pascal
+// Example of good practices
+var
+  count: Word;       // For positive counter up to 65535
+  index: Integer;    // For array indexing
+  amount: Currency;  // For monetary values
+  ratio: Double;     // For calculations requiring decimal precision
+  size: NativeInt;   // For platform-optimized size calculations
+begin
+  // Pre-check for overflow
+  if count = High(Word) then
+    WriteLn('Cannot increment further')
+  else
+    Inc(count);
+    
+  // Safe floating-point comparison
+  if Abs(ratio - 1.0) < 1E-10 then
+    WriteLn('Ratio is approximately 1.0');
+    
+  // Use larger type for intermediate calculations
+  amount := Currency(count) * Currency(1.05);  // 5% increase
+end;
+```
+
+---
+
+## Summary
+
+Pascal provides a robust set of numeric types to handle different computational needs:
+
+- **Integer Types**: Use for counting, indexing, and whole-number calculations
+  - Choose the appropriate size for your data range
+  - Be aware of overflow in arithmetic operations
+
+- **Floating-Point Types**: Use for scientific calculations, physics, engineering
+  - Remember that precision is limited and varies by type
+  - Handle equality comparisons with care
+  - Use `Double` for most general-purpose calculations
+
+- **Fixed-Point Types**: Use for financial calculations
+  - `Currency` provides exact representation for money values
+  - Avoid division operations that could lose precision
+
+Understanding the characteristics, limitations, and best practices for each numeric type will help you write more reliable and efficient Pascal code. 
