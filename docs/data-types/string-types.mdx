@@ -1,0 +1,204 @@
+> 📘 **Note:** For cross-platform applications, UTF-8 is typically the best choice for file I/O and network communications, while the native string type (UnicodeString) is best for internal processing.
+
+### The UTF-8 BOM Situation
+
+The UTF-8 Byte Order Mark (BOM) is a sequence of bytes (`EF BB BF`) that may appear at the beginning of a UTF-8 encoded file.
+
+<Tabs>
+  <TabItem value="delphi" label="Delphi" default>
+
+In Delphi, handling the UTF-8 BOM requires attention:
+
+```pascal
+uses
+  System.SysUtils, System.Classes;
+  
+procedure SaveWithBOM(const FileName: string; const Text: string);
+var
+  Stream: TStream;
+  UTF8Text: UTF8String;
+  BOM: TBytes;
+begin
+  Stream := TFileStream.Create(FileName, fmCreate);
+  try
+    // Create BOM
+    SetLength(BOM, 3);
+    BOM[0] := $EF;
+    BOM[1] := $BB;
+    BOM[2] := $BF;
+    
+    // Write BOM
+    Stream.WriteBuffer(BOM[0], 3);
+    
+    // Convert text to UTF-8 and write to file
+    UTF8Text := UTF8String(Text);
+    Stream.WriteBuffer(UTF8Text[1], Length(UTF8Text));
+  finally
+    Stream.Free;
+  end;
+end;
+
+function LoadWithBOM(const FileName: string): string;
+var
+  Stream: TStream;
+  Size: Integer;
+  Buffer: TBytes;
+  HasBOM: Boolean;
+  UTF8Text: UTF8String;
+begin
+  Stream := TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
+  try
+    Size := Stream.Size;
+    if Size = 0 then
+      Exit('');
+      
+    SetLength(Buffer, Size);
+    Stream.ReadBuffer(Buffer[0], Size);
+    
+    // Check for BOM (EF BB BF)
+    HasBOM := (Size >= 3) and 
+              (Buffer[0] = $EF) and 
+              (Buffer[1] = $BB) and 
+              (Buffer[2] = $BF);
+              
+    if HasBOM then
+    begin
+      // Skip BOM when creating the string
+      SetLength(UTF8Text, Size - 3);
+      if Size > 3 then
+        Move(Buffer[3], UTF8Text[1], Size - 3);
+    end
+    else
+    begin
+      SetLength(UTF8Text, Size);
+      Move(Buffer[0], UTF8Text[1], Size);
+    end;
+    
+    // Convert from UTF-8 to string (UnicodeString)
+    Result := string(UTF8Text);
+  finally
+    Stream.Free;
+  end;
+end;
+```
+
+Delphi's `TStringList` can also handle the BOM automatically:
+
+```pascal
+var
+  SL: TStringList;
+begin
+  SL := TStringList.Create;
+  try
+    SL.LoadFromFile('file.txt', TEncoding.UTF8);
+    // SL now contains the text with BOM removed
+    
+    // To save with BOM
+    SL.SaveToFile('file.txt', TEncoding.UTF8);
+  finally
+    SL.Free;
+  end;
+end;
+```
+
+  </TabItem>
+  <TabItem value="freepascal" label="Free Pascal">
+
+Free Pascal handles the UTF-8 BOM this way:
+
+```pascal
+uses
+  SysUtils, Classes, LazUTF8;
+  
+// Writing UTF-8 file with BOM
+procedure WriteUTF8FileWithBOM(const FileName: string; const Contents: string);
+var
+  Stream: TFileStream;
+  UTF8Str: UTF8String;
+  BOM: array[0..2] of Byte;
+begin
+  Stream := TFileStream.Create(FileName, fmCreate);
+  try
+    // Write BOM
+    BOM[0] := $EF;
+    BOM[1] := $BB;
+    BOM[2] := $BF;
+    Stream.WriteBuffer(BOM, 3);
+    
+    // Convert and write content
+    UTF8Str := UTF8Encode(Contents);
+    Stream.WriteBuffer(PChar(UTF8Str)^, Length(UTF8Str));
+  finally
+    Stream.Free;
+  end;
+end;
+
+// Reading UTF-8 file with or without BOM
+function ReadUTF8File(const FileName: string): string;
+var
+  Stream: TFileStream;
+  Size: Int64;
+  Buffer: array of Byte;
+  HasBOM: Boolean;
+begin
+  Stream := TFileStream.Create(FileName, fmOpenRead);
+  try
+    Size := Stream.Size;
+    SetLength(Buffer, Size);
+    Stream.ReadBuffer(Buffer[0], Size);
+    
+    // Check for BOM
+    HasBOM := (Size >= 3) and 
+              (Buffer[0] = $EF) and 
+              (Buffer[1] = $BB) and 
+              (Buffer[2] = $BF);
+    
+    if HasBOM then
+      Result := UTF8ToUTF16(PChar(@Buffer[3]), Size - 3)
+    else
+      Result := UTF8ToUTF16(PChar(@Buffer[0]), Size);
+  finally
+    Stream.Free;
+  end;
+end;
+```
+
+Lazarus component libraries like `TStringList` can handle BOM:
+
+```pascal
+var
+  SL: TStringList;
+begin
+  SL := TStringList.Create;
+  try
+    // Load file, handles BOM automatically
+    SL.LoadFromFile('utf8file.txt');
+    
+    // To explicitly save with UTF-8 encoding and BOM
+    SL.WriteBOM := True; // Set BOM flag
+    SL.SaveToFile('utf8file.txt', TEncoding.UTF8);
+  finally
+    SL.Free;
+  end;
+end;
+```
+
+  </TabItem>
+</Tabs>
+
+### When to Use UTF-8 BOM
+
+- **Pros:**
+  - Clearly identifies the file as UTF-8 encoded
+  - Helpful for programs that can't detect encoding
+  - Some editors require it to correctly recognize UTF-8
+
+- **Cons:**
+  - Can cause issues with some systems that expect raw UTF-8
+  - Adds three extra bytes to every file
+  - Some tools like Unix shells or web servers may misinterpret files with BOM
+  - Can break shebang (`#!`) interpretation in Unix scripts
+
+> 🔍 **Best Practice:** For internal application files, using BOM is generally safe. For files that will be processed by other systems (especially Unix/Linux tools), avoid using BOM.
+
+## Declaration Rules
