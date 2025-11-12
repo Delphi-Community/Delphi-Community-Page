@@ -1,0 +1,135 @@
+---
+title: Download
+description: Download Delphi and Pascal resources
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Download
+
+Install Lazarus IDE or FreePascal compiler using your preferred package manager:
+
+:::info
+**Note:** Lazarus IDE includes the FreePascal compiler. If you only need the compiler for command-line compilation, you can install FreePascal separately.
+:::
+
+<Tabs groupId="operating-systems">
+  <TabItem value="linux" label="Linux" default>
+
+**Lazarus IDE**
+
+<details>
+<summary>View packaging status across distributions</summary>
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/lazarus.svg)](https://repology.org/project/lazarus/versions)
+
+</details>
+
+**Ubuntu/Debian**
+
+```bash
+sudo apt-get update
+sudo apt-get install lazarus
+```
+
+**Fedora**
+
+```bash
+sudo dnf install lazarus
+```
+
+**Arch Linux**
+
+```bash
+sudo pacman -S lazarus
+```
+
+**FreePascal Compiler**
+
+<details>
+<summary>View packaging status across distributions</summary>
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/fpc.svg)](https://repology.org/project/fpc/versions)
+
+</details>
+
+**Ubuntu/Debian**
+
+```bash
+sudo apt-get update
+sudo apt-get install fpc
+```
+
+**Fedora**
+
+```bash
+sudo dnf install fpc
+```
+
+**Arch Linux**
+
+```bash
+sudo pacman -S fpc
+```
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+
+**Lazarus IDE**
+
+![WinGet Package Version](https://img.shields.io/winget/v/Lazarus.Lazarus)
+
+```bash
+winget install Lazarus.Lazarus
+```
+
+**FreePascal Compiler**
+
+![WinGet Package Version](https://img.shields.io/winget/v/FreePascal.FreePascalCompiler)
+
+```bash
+winget install FreePascal.FreePascalCompiler
+```
+
+  </TabItem>
+  <TabItem value="macos" label="macOS">
+
+**Lazarus IDE**
+
+**Homebrew**
+
+[![Homebrew Casks package](https://repology.org/badge/version-for-repo/homebrew_casks/lazarus.svg)](https://repology.org/project/lazarus/versions)
+
+```bash
+brew install --cask lazarus
+```
+
+**MacPorts**
+
+[![MacPorts package](https://repology.org/badge/version-for-repo/macports/lazarus.svg)](https://repology.org/project/lazarus/versions)
+
+```bash
+sudo port install lazarus
+```
+
+**FreePascal Compiler**
+
+**Homebrew**
+
+[![Homebrew package](https://repology.org/badge/version-for-repo/homebrew/fpc.svg)](https://repology.org/project/fpc/versions)
+
+```bash
+brew install fpc
+```
+
+**MacPorts**
+
+[![MacPorts package](https://repology.org/badge/version-for-repo/macports/fpc.svg)](https://repology.org/project/fpc/versions)
+
+```bash
+sudo port install fpc
+```
+
+  </TabItem>
+</Tabs>

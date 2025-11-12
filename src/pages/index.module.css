@@ -3,21 +3,85 @@
  * and scoped locally.
  */
 
-.heroBanner {
-  /* padding: 4rem 0; */
-  /* text-align: center; */
-  /* position: relative; */
-  /* overflow: hidden; */
+/* Modal styles using Docusaurus theme variables */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    /* padding: 2rem; */
+.modalContent {
+  background-color: var(--ifm-background-color);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Ensure proper background on light theme */
+[data-theme='light'] .modalContent {
+  background-color: #ffffff;
+}
+
+[data-theme='dark'] .modalContent {
+  background-color: var(--ifm-background-color);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tagButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Clean close button using Docusaurus variables */
+.cleanBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-600);
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+/* Simple responsive - just the essentials */
+@media screen and (max-width: 768px) {
+  .modalContent {
+    width: 95%;
   }
-}
-
-.buttons {
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }

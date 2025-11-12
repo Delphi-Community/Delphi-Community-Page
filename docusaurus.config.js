@@ -57,11 +57,21 @@ export default {
         height: 32,
       },
       items: [
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'left',
+        //   label: 'Documentation',
+        // },
+        // {
+        //   to: '/package-manager',
+        //   position: 'left',
+        //   label: 'Package Manager',
+        // },
         {
-          type: 'doc',
-          docId: 'intro',
+          to: '/download',
           position: 'left',
-          label: 'Documentation',
+          label: 'Download',
         },
         {
           type: 'dropdown',
